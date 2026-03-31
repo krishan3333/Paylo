@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+'use client';
 import Sidebar from '../../components/sidebar';
+import React, { useState } from 'react';
 import Navbar from '../../components/navbar';
 import DashboardCard from '../../components/dashboard-card';
 import TransactionTable from '../../components/transaction-table';

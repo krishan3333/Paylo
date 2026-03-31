@@ -13,69 +13,73 @@ const TransactionForm = ({ onSubmit }: TransactionFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!title || !amount || !category || !date) {
+      alert('Please fill in all fields.');
+      return;
+    }
     onSubmit({ title, amount, type, category, date });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <label htmlFor="title" className="block text-gray-700">Title</label>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label htmlFor="title" className="block text-sm font-medium text-gray-300">Title</label>
         <input
           type="text"
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
-          className="mt-1 p-2 block w-full border rounded-md"
+          className="mt-1 p-2 block w-full border rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="amount" className="block text-gray-700">Amount</label>
+      <div>
+        <label htmlFor="amount" className="block text-sm font-medium text-gray-300">Amount</label>
         <input
           type="number"
           id="amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           required
-          className="mt-1 p-2 block w-full border rounded-md"
+          className="mt-1 p-2 block w-full border rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="type" className="block text-gray-700">Type</label>
+      <div>
+        <label htmlFor="type" className="block text-sm font-medium text-gray-300">Type</label>
         <select
           id="type"
           value={type}
           onChange={(e) => setType(e.target.value)}
           required
-          className="mt-1 p-2 block w-full border rounded-md"
+          className="mt-1 p-2 block w-full border rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="income">Income</option>
           <option value="expense">Expense</option>
         </select>
       </div>
-      <div className="mb-4">
-        <label htmlFor="category" className="block text-gray-700">Category</label>
+      <div>
+        <label htmlFor="category" className="block text-sm font-medium text-gray-300">Category</label>
         <input
           type="text"
           id="category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           required
-          className="mt-1 p-2 block w-full border rounded-md"
+          className="mt-1 p-2 block w-full border rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="date" className="block text-gray-700">Date</label>
+      <div>
+        <label htmlFor="date" className="block text-sm font-medium text-gray-300">Date</label>
         <input
           type="date"
           id="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
-          className="mt-1 p-2 block w-full border rounded-md"
+          className="mt-1 p-2 block w-full border rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">Add Transaction</button>
+      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add Transaction</button>
     </form>
   );
 };
