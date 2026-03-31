@@ -16,8 +16,10 @@ const DashboardPage = () => {
           <DashboardCard title="Expenses" value={3000} />
           <DashboardCard title="Savings" value={7000} />
         </div>
-        <TransactionTable className="mt-6" />
-      </div>
+        <div className="mt-6">
+          <TransactionTable />
+        </div>
+      </div>  
     </div>
   );
 };
